@@ -1,0 +1,6 @@
+{
+  "*.ts?(x)": [
+    "npm run lint",
+    "git add ."
+  ]
+}

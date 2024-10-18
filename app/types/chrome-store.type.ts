@@ -1,5 +1,5 @@
-import {IPage} from "./page.type";
+import type { IPage } from "./page.type"
 
 export interface IChromeStore {
-  pages?: IPage[];
+  pages?: IPage[]
 }
