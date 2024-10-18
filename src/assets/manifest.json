@@ -1,12 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "React Chrome Extension",
+  "name": "Saver",
   "version": "1.0.0",
   "background": {
     "service_worker": "js/background.js"
   },
   "icons": {
-    "512": "img/icon512.png"
+    "48": "img/icon-48.png",
+    "120": "img/icon-120.png",
+    "512": "img/icon-512.png"
   },
   "permissions": [
     "contextMenus",
