@@ -44,7 +44,6 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "src/assets/manifest.json", to: "../" },
         {
           from: "src/assets/**/*.*", to: (pathData) => {
             return pathData.absoluteFilename.replace(/src\/assets\//, "dist/")
