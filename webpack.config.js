@@ -4,9 +4,11 @@ const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   entry: {
-    index: "./app/index.tsx"
+    index: "./app/index.tsx",
+    background: "./app/background/background.ts",
   },
-  mode: "production",
+  mode: "development",
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -46,7 +48,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {from: "manifest.json", to: "../manifest.json"},
-        { from: "background.js", to: "../background.js" },
+        // { from: "background.js", to: "../background.js" },
         { from: "images/*.*", to: "../" },
       ],
     }),

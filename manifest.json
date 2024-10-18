@@ -3,7 +3,7 @@
   "name": "React Chrome Extension",
   "version": "1.0.0",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "js/background.js"
   },
   "icons": {
     "512": "images/icon512.png"
