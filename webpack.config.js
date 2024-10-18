@@ -1,14 +1,14 @@
-const path = require("path");
-const HTMLPlugin = require("html-webpack-plugin");
+const path = require("path")
+const HTMLPlugin = require("html-webpack-plugin")
 const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   entry: {
-    index: "./app/index.tsx",
-    background: "./app/background/background.ts",
+    index: "./src/index.tsx",
+    background: "./src/background/background.ts",
   },
   mode: "development",
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -17,9 +17,10 @@ module.exports = {
           {
             loader: "ts-loader",
             options: {
-              compilerOptions: {noEmit: false},
-            }
-          }],
+              compilerOptions: { noEmit: false },
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
       {
@@ -32,24 +33,23 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [
-                  require('tailwindcss'),
-                  require('autoprefixer'),
-                ],
+                plugins: [require("tailwindcss"), require("autoprefixer")],
               },
             },
           },
-        ]
-
+        ],
       },
     ],
   },
   plugins: [
     new CopyPlugin({
       patterns: [
-        {from: "manifest.json", to: "../manifest.json"},
-        // { from: "background.js", to: "../background.js" },
-        { from: "images/*.*", to: "../" },
+        { from: "src/assets/manifest.json", to: "../" },
+        {
+          from: "src/assets/**/*.*", to: (pathData) => {
+            return pathData.absoluteFilename.replace(/src\/assets\//, "dist/")
+          },
+        },
       ],
     }),
     ...getHtmlPlugins(["index"]),
@@ -61,15 +61,15 @@ module.exports = {
     path: path.join(__dirname, "dist/js"),
     filename: "[name].js",
   },
-};
+}
 
 function getHtmlPlugins(chunks) {
   return chunks.map(
     (chunk) =>
       new HTMLPlugin({
-        title: "React extension",
+        title: "Saver",
         filename: `${chunk}.html`,
         chunks: [chunk],
-      })
-  );
+      }),
+  )
 }
