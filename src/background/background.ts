@@ -11,7 +11,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   switch (info.menuItemId) {
     case "savePage":
-      await pagesService.add(tab?.title, tab?.url)
+      await pagesService.addPage(tab?.title, tab?.url)
       break
   }
 })
