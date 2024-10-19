@@ -31,6 +31,6 @@ describe("SavedPagesList", () => {
   it("renders a message when there are no saved pages", async () => {
     ;(pagesService.getAll as jest.Mock).mockResolvedValue([])
     render(<SavedPagesList />)
-    expect(await screen.findByText("Pages")).toBeInTheDocument()
+    expect(await screen.findByText("Saved pages")).toBeInTheDocument()
   })
 })

@@ -16,16 +16,21 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
   }, [])
 
   return (
-    <>
-      <Text className={"mb-8"}>Pages</Text>
+    <div className={"max-h-full h-full flex flex-col"}>
+      <Text
+        variant={"h3"}
+        className={"mb-4"}
+      >
+        Saved pages
+      </Text>
 
-      <ul className={"flex gap-2 flex-col"}>
+      <ul className={"flex gap-2 flex-col max-h-full pe-2 overflow-y-auto overflow-x-hidden"}>
         {pages.map(({ href, icon, title }) => (
           <li key={href}>
             <Button
               href={href}
               className={
-                "flex gap-2 items-center py-2 px-6 rounded-2xl transition bg-gray-800 hover:bg-gray-600 text-white"
+                "flex gap-2 items-center py-2 px-4 rounded-xl transition bg-gray-800 hover:bg-gray-600 text-white"
               }
             >
               <Image
@@ -37,6 +42,7 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
                 lineClamp={1}
                 variant={"p"}
                 tag={"span"}
+                className={"text-xs"}
               >
                 {title}
               </Text>
@@ -44,6 +50,6 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
