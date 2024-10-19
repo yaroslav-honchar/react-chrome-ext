@@ -15,7 +15,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack -w --config webpack.config.js",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "lint": "eslint src/**/*.{ts,tsx} --fix --config .eslintrc.json",
     "format": "prettier --log-level warn --write src/**/*.{ts,tsx,css}",
     "prepare": "husky"

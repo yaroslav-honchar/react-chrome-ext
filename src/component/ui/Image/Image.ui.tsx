@@ -17,7 +17,7 @@ export const Image: React.FC<IImageProps> = ({
       isFallbackUsed.current = true
       console.log("Image component: Fallback image used")
     } else {
-      event.currentTarget.src = "/img/icon-48.png"
+      event.currentTarget.src = "/img/icon.svg"
       console.log("Image component: Fallback image used default src")
     }
 

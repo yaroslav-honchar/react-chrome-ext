@@ -42,7 +42,7 @@ describe("Image component", () => {
     const imgElement = screen.getByRole("img")
     fireEvent.error(imgElement)
     fireEvent.error(imgElement)
-    expect(imgElement).toHaveAttribute("src", "/img/icon-48.png")
+    expect(imgElement).toHaveAttribute("src", "/img/icon.svg")
   })
 
   it("applies the correct class names", () => {

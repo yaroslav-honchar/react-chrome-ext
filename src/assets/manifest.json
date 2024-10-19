@@ -8,6 +8,7 @@
   "icons": {
     "48": "img/icon-48.png",
     "120": "img/icon-120.png",
+    "240": "img/icon-240.png",
     "512": "img/icon-512.png"
   },
   "permissions": [
