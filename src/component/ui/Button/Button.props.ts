@@ -1,15 +1,15 @@
 import type React from "react"
 import type { buttonVariants } from "./Button.variants"
 
-type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
+export type AnchorPropsType = React.AnchorHTMLAttributes<HTMLAnchorElement>
+export type ButtonPropsType = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 /**
  * Props for the Button component.
  *
  * @extends {Partial<AnchorProps & ButtonProps>}
  */
-export interface IButtonProps extends Partial<AnchorProps & ButtonProps> {
+export interface IButtonProps extends Partial<AnchorPropsType & ButtonPropsType> {
   /**
    * Variant of the button, corresponding to a key in buttonVariants.
    *

@@ -11,6 +11,7 @@ export const Button: React.FC<IButtonProps> = ({
   href,
   children,
   disabled,
+  type = "button",
   ...rest
 }) => {
   const isAnchor = tag === "a" || !!href
@@ -19,6 +20,7 @@ export const Button: React.FC<IButtonProps> = ({
     className: cn(buttonVariants[variant], className),
     role: isAnchor ? "link" : "button",
     href: isAnchor ? href : undefined,
+    type: !isAnchor ? type : undefined,
     disabled: !isAnchor && disabled,
     onClick: isAnchor && disabled ? (e: React.MouseEvent) => e.preventDefault() : undefined,
     ...rest,

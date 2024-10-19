@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { pagesService } from "../../services/pages.service"
 import type { IPage } from "../../types/page.type"
-import { Button } from "../ui/Button/Button.ui"
+import { Button } from "../ui/Button"
 import { Image } from "../ui/Image"
 import { Text } from "../ui/Text"
 import type { SavedPagesListProps } from "./SavedPagesList.props"
