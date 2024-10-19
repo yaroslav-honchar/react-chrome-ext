@@ -1,6 +1,7 @@
 import React, { type SyntheticEvent, useEffect, useState } from "react"
 import { pagesService } from "../../services/pages.service"
 import type { IPage } from "../../types/page.type"
+import { Button } from "../ui/Button/Button.ui"
 import { Text } from "../ui/Text"
 import type { SavedPagesListProps } from "./SavedPagesList.props"
 
@@ -24,7 +25,7 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
       <ul className={"flex gap-2 flex-col"}>
         {pages.map(({ href, icon, title }) => (
           <li key={href}>
-            <a
+            <Button
               href={href}
               className={
                 "flex gap-2 items-center py-2 px-6 rounded-2xl transition bg-gray-800 hover:bg-gray-600 text-white"
@@ -43,7 +44,7 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
               >
                 {title}
               </Text>
-            </a>
+            </Button>
           </li>
         ))}
       </ul>
