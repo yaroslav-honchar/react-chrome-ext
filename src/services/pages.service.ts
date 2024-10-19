@@ -1,7 +1,18 @@
 import type { IChromeStore } from "../types/chrome-store.type"
 import type { IPage } from "../types/page.type"
 
+/**
+ * Service for managing pages in the Chrome local storage.
+ */
 class PagesService {
+  /**
+   * Adds a new page to the Chrome local storage.
+   *
+   * @param {string | undefined} title - The title of the page.
+   * @param {string | undefined} url - The URL of the page.
+   * @returns {Promise<void>} A promise that resolves when the page is saved.
+   * @throws {Error} If the title or URL is not provided.
+   */
   async add(title: string | undefined, url: string | undefined): Promise<void> {
     if (!title || !url) {
       throw new Error(`[STORE_ADD_ITEM] Failed to save page "${title}" at URL: ${url}`)
@@ -32,10 +43,18 @@ class PagesService {
       })
   }
 
-  async getAll() {
+  /**
+   * Retrieves all pages from the Chrome local storage.
+   *
+   * @returns {Promise<IPage[]>} A promise that resolves to an array of pages.
+   */
+  async getAll(): Promise<IPage[]> {
     const store = await chrome.storage.local.get<IChromeStore>()
-    return store.pages || []
+    return store?.pages || []
   }
 }
 
+/**
+ * Instance of PagesService for managing pages.
+ */
 export const pagesService = new PagesService()
