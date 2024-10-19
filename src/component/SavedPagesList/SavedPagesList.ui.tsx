@@ -1,7 +1,8 @@
-import React, { type SyntheticEvent, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { pagesService } from "../../services/pages.service"
 import type { IPage } from "../../types/page.type"
 import { Button } from "../ui/Button/Button.ui"
+import { Image } from "../ui/Image"
 import { Text } from "../ui/Text"
 import type { SavedPagesListProps } from "./SavedPagesList.props"
 
@@ -13,10 +14,6 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
       savedPages.length !== 0 && setPages(savedPages)
     })
   }, [])
-
-  const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
-    event.currentTarget.src = "/img/icon-48.png"
-  }
 
   return (
     <>
@@ -31,11 +28,10 @@ export const SavedPagesList: React.FC<SavedPagesListProps> = () => {
                 "flex gap-2 items-center py-2 px-6 rounded-2xl transition bg-gray-800 hover:bg-gray-600 text-white"
               }
             >
-              <img
+              <Image
                 src={icon}
                 alt={title}
                 className={"w-4 h-4 object-contain"}
-                onError={onImageError}
               />
               <Text
                 lineClamp={1}

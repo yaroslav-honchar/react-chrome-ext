@@ -1,0 +1,36 @@
+import React, { useRef } from "react"
+import type { IImageProps } from "./Image.props"
+
+export const Image: React.FC<IImageProps> = ({
+  src,
+  alt = "image",
+  fallbackSrc,
+  className,
+  onError,
+  ...rest
+}) => {
+  const isFallbackUsed = useRef<boolean>(false)
+
+  const onImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    if (typeof fallbackSrc === "string" && !isFallbackUsed.current) {
+      event.currentTarget.src = fallbackSrc
+      isFallbackUsed.current = true
+      console.log("Image component: Fallback image used")
+    } else {
+      event.currentTarget.src = "/img/icon-48.png"
+      console.log("Image component: Fallback image used default src")
+    }
+
+    onError?.(event)
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      onError={onImageError}
+      {...rest}
+    />
+  )
+}
